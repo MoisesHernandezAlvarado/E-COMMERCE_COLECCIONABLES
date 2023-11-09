@@ -98,3 +98,4 @@ class Pagos (models.Model):
     
     def __str__(self):
         return self.ID_Pago
+

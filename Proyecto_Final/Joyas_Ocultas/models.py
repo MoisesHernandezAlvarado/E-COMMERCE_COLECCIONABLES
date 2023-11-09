@@ -58,8 +58,8 @@ class Mensajes(models.Model):
 
 class Valoraciones (models.Model):
     ID_Valoracion = models.AutoField(primary_key=True)
-    ID_Usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
-    ID_Articulo = models.ForeignKey(Articulo, on_delete=models.CASCADE)
+    ID_Usuario = models.ForeignKey(Usuarios, on_delete=models.CASCADE)
+    ID_Articulo = models.ForeignKey(Articulos, on_delete=models.CASCADE)
     Puntuacion = models.IntegerField()
     Comentario = models.CharField(max_length=200)
     Fecha_Valoracion = models.DateField("Fecha de Valoracion")
@@ -69,8 +69,8 @@ class Valoraciones (models.Model):
 
 class Carrito (models.Model):   
     ID_Carrito = models.AutoField(primary_key=True)
-    ID_Usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
-    ID_Articulo = models.ForeignKey(Articulo, on_delete=models.CASCADE)
+    ID_Usuario = models.ForeignKey(Usuarios, on_delete=models.CASCADE)
+    ID_Articulo = models.ForeignKey(Articulos, on_delete=models.CASCADE)
     
     def __str__(self):
         return self.ID_Carrito
@@ -79,7 +79,7 @@ class Carrito (models.Model):
 class Detalles_Carrito (models.Model):
     ID_Detalle_Carrito = models.AutoField(primary_key=True)
     ID_Carrito = models.ForeignKey(Carrito, on_delete=models.CASCADE)
-    ID_Articulo = models.ForeignKey(Articulo, on_delete=models.CASCADE)
+    ID_Articulo = models.ForeignKey(Articulos, on_delete=models.CASCADE)
     Cantidad = models.IntegerField()
     Precio = models.IntegerField()
     Subtotal = models.IntegerField()
@@ -89,7 +89,7 @@ class Detalles_Carrito (models.Model):
 
 class Pagos (models.Model):
     ID_Pago = models.AutoField(primary_key=True)
-    ID_Usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    ID_Usuario = models.ForeignKey(Usuarios, on_delete=models.CASCADE)
     ID_Carrito = models.ForeignKey(Carrito, on_delete=models.CASCADE)
     Monto = models.IntegerField()
     Metodo_Pago = models.CharField(max_length=50)

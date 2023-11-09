@@ -19,4 +19,5 @@ from django.urls import path
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path('el_precio_de_la_historia/',include("Joyas_Ocultas.urls")),
 ]
